@@ -1,22 +1,25 @@
 ---
-title: Example Author
+title: Liu Feng
 draft: false
-role: Example Role
-avatar: images/icon.png
-bio: Aenean vel bibendum quam. Aliquam at mollis quam. Proin efficitur.
+role: Software Engineer
+avatar: https://raw.githubusercontent.com/yaoyuanArtemis/imgages/main/avatar.png
 organization:
-  name: Example Organization
-  url: https://example.com/
+  name: Hongkong University
+  url: https://www.hku.hk/
 social:
   - icon: envelope
+    name: yaoyuan.lf@gmail.com
     iconPack: fas
-    url: mailto:example@example.com
-  - icon: twitter
+    url: yaoyuan.lf@gmail.com
+  - icon: "google-scholar"
     iconPack: fab
-    url: https://example.com/
+    url: https://scholar.google.com/citations?user=0O_0fFAAAAAJ
   - icon: github
     iconPack: fab
-    url: https://example.com/
+    url: https://github.com/yaoyuanArtemis
+  - icon: file-pdf
+    iconPack: fas
+    url: public/images/resume.pdf
 
 weight: 1
 widget:
@@ -27,9 +30,9 @@ widget:
 
   sidebar:
     # Options: left and right. Leave blank to hide.
-    position:
+    position: 
     # Options: sm, md, lg and xl. Default is md.
-    scale:
+    scale: 
   
   background:
     # Options: primary, secondary, tertiary or any valid color value. Default is primary.
@@ -38,26 +41,30 @@ widget:
     # Options: auto, cover and contain. Default is auto.
     size:
     # Options: center, top, right, bottom, left.
-    position:
+    position: left
     # Options: fixed, local, scroll.
-    attachment: 
+    attachment: fixed
 ---
 
-## Self Introduction
+## About me
 
-Cras ex dui, tristique a libero eget, consectetur semper ligula. Nunc augue arcu, malesuada a nisi et, molestie finibus metus. Sed lacus odio, ultricies a nisl vitae, sollicitudin tempor ipsum. Vivamus quis feugiat arcu. Sed mi nunc, efficitur quis tellus vitae, posuere mattis metus. Phasellus in mattis dui. Nullam blandit, augue non ullamcorper dapibus, lacus dui molestie massa, in iaculis purus lectus eu lectus. Duis hendrerit lacinia tellus, sit amet feugiat dolor placerat id. Aenean ac velit massa. Vivamus feugiat dui at magna viverra, ut dictum nunc rutrum. Duis eget sapien finibus, lobortis orci id, vestibulum tellus. Maecenas lobortis urna libero, quis fermentum lectus lobortis nec. Nullam laoreet volutpat libero, ac mattis magna ullamcorper quis. Duis eget ipsum eu nisi mattis cursus et vitae turpis.
+I work at<strong>Alibaba</strong> <strong>Group</strong><img src='https://raw.githubusercontent.com/yaoyuanArtemis/imgages/main/alibaba_logo.png' style='width: 3em;display: inline;marginTop:0;marginBottom:0'> as a front-end developer,currently in Hangzhou,China.
 
-Aliquam pretium diam eget leo feugiat finibus. Donec malesuada commodo ipsum. Aenean a massa in lacus venenatis vestibulum. Duis vel sem quis elit iaculis consectetur et quis dolor. Morbi eu ipsum hendrerit, malesuada ante sed, dapibus est. Suspendisse feugiat nulla ut gravida convallis. Phasellus id massa posuere, rhoncus justo ut, porttitor dolor. Nulla ultrices malesuada egestas. Nunc fermentum tincidunt sem ac vulputate. Donec mollis sollicitudin justo eget varius. Donec ornare velit et felis blandit, id molestie sapien lobortis. Morbi eget tristique justo. Mauris posuere, nibh eu laoreet ultricies, ligula erat iaculis sapien, vel dapibus lacus libero ut diam. Etiam viverra ante felis, et scelerisque nunc pellentesque vitae. Praesent feugiat dictum molestie.
+I am now working at TD, Transportation Division,backend system for ticket sales. If you are seeking any form of technology cooperation, please feel free to email me at yaoyuan.lf@alibaba-inc.com or yaoyuan.lf@gmail.com.
 
-## Details  
+I graduated from Computer Talent Class,Department of Computer Science, Anhui University (安徽大学计算机英才班) with a bachelor’s degree advised by Professor Zhang Lei.Subsequently, I commenced my Master's studies in the Department of Mechanical Engineering at the University of Hong Kong.
 
-Nunc pellentesque vitae:
-- Morbi accumsan nibh efficitur diam molestie, non dignissim diam facilisis.
-- Donec dignissim leo in mollis faucibus.
-- Donec blandit lacus a pellentesque fermentum.
+My expertise lies in full-stack web development, with a strong command of React-related technologies for the frontend and Node.js and Java for backend development. However, my current passion is directed towards research and application in Large Language Models (LLMs). My ambition is to become an LLM Researcher, contributing to the foundational advancements that will usher in the era of Artificial General Intelligence (AGI).
 
-Donec mollis sollicitudin:
-- Nunc dictum purus ornare purus consectetur, eu pellentesque massa ullamcorper.
-- Aliquam eu leo vitae justo aliquam tincidunt.
-- Fusce non massa id augue interdum feugiat sed et nulla.
-- Vivamus molestie augue in tristique laoreet.
+## 📖 Educations
+
+- 2025.9 - 2026.6, Master, Hongkong University, HKSAR 🇭🇰.
+- 2017.9 - 2021.6, Undergraduate, Computer Talent Class,Anhui University, Hefei, China🇨🇳.
+- 2014.9 - 2017.6, Qingyang No.1 Middle School, Qingyang, China 🇨🇳.
+
+## 💻 Experience
+- 2021.7 - 2023.9, Infrastructure Research and Develpment Center at China Merchants Bank(CMB).
+- 2023.9 - 2024.4, AliTrip Transportation Division,Alibaba.
+
+## 📝 Publications
+- A Reduced Mixed Representation Based Multi-Objective Evolutionary Algorithm for Large-Scale Overlapping Community Detection 2021 IEEE Congress on Evolutionary Computation (CEC) DOI: 10.1109/CEC45853.2021.9504894
