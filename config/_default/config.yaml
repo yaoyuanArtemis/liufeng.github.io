@@ -1,4 +1,4 @@
-baseURL: /
+baseURL: "https://yaoyuanArtemis.github.io/"
 title: Liu Feng
 
 # Uncomment when not installing with Hugo Modules
