@@ -1,43 +1,78 @@
-name: github pages
+# 用于构建和部署Hugo网站到GitHub Pages的示例工作流程
+name: 发布Hugo网站到Pages
 
-# on 是 Actions 的触发条件，这里的配置说明当 master 分支有提交的时候，根据这个配置文件执行
 on:
+  # 在目标为默认分支的推送上运行
   push:
     branches:
-      - main # Set a branch to deploy
+      - main
 
-# jobs 是要执行的任务，我们看到他要执行 deploy
+  # 允许您手动从“Actions”标签运行此工作流程
+  workflow_dispatch:
+
+# 设置GITHUB_TOKEN的权限，以允许部署到GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 仅允许一个并发部署，跳过在进行中的运行与最新排队的运行之间排队的运行。
+# 但是，请不要取消进行中的运行，因为我们希望这些生产部署能够完成。
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+# 默认使用bash
+defaults:
+  run:
+    shell: bash
+
 jobs:
-  deploy:
-    runs-on: ubuntu-18.04 # 运行环境
-    steps: # 执行步骤
-
-      # checkout 分支
-      - uses: actions/checkout@v2
+  # 构建作业
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.100.1
+    steps:
+      - name: 安装Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb          
+      - name: 安装Dart Sass
+        run: sudo snap install dart-sass
+      - name: 检出
+        uses: actions/checkout@v4
         with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-
-      # 安装 hugo
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: 0.100.1
-          # extended: true
-
-      # 编译站点
-      - name: Build
-        run: hugo --minify
-
-      # 创建 CNAME，这个是原始配置中没有的
-      - uses: "finnp/create-file-action@master"
+          submodules: recursive
+          fetch-depth: 0
+      - name: 设置Pages
+        id: pages
+        uses: actions/configure-pages@v3
+      - name: 安装Node.js依赖
+        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+      - name: 使用Hugo构建
         env:
-          FILE_NAME: "./public/CNAME"
-          FILE_DATA: "h1z3y3.me"
-
-      # 将站点发布到对应分支
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+          # 为了与Hugo模块的最大向后兼容性
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
+        run: |
+          hugo \
+            --gc \
+            --minify \
+            --baseURL "${{ steps.pages.outputs.base_url }}/"          
+      - name: 上传构建产物
+        uses: actions/upload-pages-artifact@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          path: ./public
+
+  # 部署作业
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: 部署到GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
