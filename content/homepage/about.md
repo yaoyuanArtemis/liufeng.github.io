@@ -10,8 +10,8 @@ social:
   - icon: envelope
     name: yaoyuan.lf@gmail.com
     iconPack: fas
-    url: yaoyuan.lf@gmail.com
-  - icon: "google"
+    url: mailto:yaoyuan.lf@gmail.com
+  - icon: google
     iconPack: fab
     url: https://scholar.google.com/citations?user=0O_0fFAAAAAJ
   - icon: github
@@ -19,7 +19,7 @@ social:
     url: https://github.com/yaoyuanArtemis
   - icon: file-pdf
     iconPack: fas
-    url: public/images/resume.pdf
+    url: /images/resume.pdf
 
 weight: 1
 widget:
@@ -48,7 +48,7 @@ widget:
 
 ## About me
 
-I work at<strong>Alibaba</strong> <strong>Group</strong><img src='https://raw.githubusercontent.com/yaoyuanArtemis/imgages/main/alibaba_logo.png' style='width: 3em;display: inline;marginTop:0;marginBottom:0'> as a front-end developer,currently in Hangzhou,China.
+I work at<strong>Alibaba</strong> <strong>Group</strong><img src='https://raw.githubusercontent.com/yaoyuanArtemis/imgages/main/alibaba_logo.png' style='width: 3em;display: inline;margin-top:0;margin-bottom:0'> as a front-end developer,currently in Hangzhou,China.
 
 I am now working at TD, Transportation Division,backend system for ticket sales. If you are seeking any form of technology cooperation, please feel free to email me at yaoyuan.lf@alibaba-inc.com or yaoyuan.lf@gmail.com.
 
