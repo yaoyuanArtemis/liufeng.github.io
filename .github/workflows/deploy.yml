@@ -1,9 +1,8 @@
-name: 发布Hugo网站到Pages
+name: 构建并部署 Hugo 网站
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -15,53 +14,36 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-defaults:
-  run:
-    shell: bash
-
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.103.0
     steps:
-      - name: 安装 Hugo CLI
+      - name: 安装 Hugo
         run: |
-          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
-          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
-      - name: 安装 Dart Sass
-        run: sudo snap install dart-sass
-      - name: 检出代码
+          wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb
+          sudo dpkg -i hugo.deb
+
+      - name: 检出仓库
         uses: actions/checkout@v4
         with:
           submodules: recursive
           fetch-depth: 0
-      - name: 配置 GitHub Pages
-        id: pages
-        uses: actions/configure-pages@v3
-      - name: 安装 Node.js 依赖（如果存在）
+
+      - name: 安装 Dart Sass
+        run: sudo snap install dart-sass
+
+      - name: 安装依赖
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
-      - name: 使用 Hugo 构建网站
+
+      - name: 构建 Hugo
         env:
           HUGO_ENVIRONMENT: production
-          HUGO_ENV: production
         run: |
-          hugo \
-            --gc \
-            --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
-      - name: 上传构建产物到 Pages
-        uses: actions/upload-pages-artifact@v2
+          hugo --minify
+
+      - name: 部署到 GitHub Pages
+        uses: actions/deploy-pages@v4
         with:
           path: ./public
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: 部署到 GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
