@@ -11,7 +11,7 @@ social:
     name: yaoyuan.lf@gmail.com
     iconPack: fas
     url: yaoyuan.lf@gmail.com
-  - icon: "google-scholar"
+  - icon: "google"
     iconPack: fab
     url: https://scholar.google.com/citations?user=0O_0fFAAAAAJ
   - icon: github

@@ -1,20 +1,25 @@
 ---
-title: Hugo Authors
-role: Example Role
-bio: Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos.
+title: Liu Feng
+role: Machine Learning Engineer
+avatar: https://raw.githubusercontent.com/yaoyuanArtemis/imgages/main/avatar.png
+bio: Aenean vel bibendum quam. Aliquam at mollis quam. Proin efficitur.
 organization:
-  name: Example Organization
-  url: https://example.com/
+  name: Hongkong University
+  url: https://www.hku.hk/
 social:
   - icon: envelope
+    name: yaoyuan.lf@gmail.com
     iconPack: fas
-    url: mailto:example@example.com
-  - icon: twitter
+    url: yaoyuan.lf@gmail.com
+  - icon: "google"
     iconPack: fab
-    url: https://example.com/
+    url: https://scholar.google.com/citations?user=0O_0fFAAAAAJ
   - icon: github
     iconPack: fab
-    url: https://example.com/
+    url: https://github.com/yaoyuanArtemis
+  - icon: file-pdf
+    iconPack: fas
+    url: public/images/resume.pdf
 ---
 
 ## Vestibulum vel arcu
