@@ -1,10 +1,12 @@
 ---
 title: LLM-大模型
-description:
+description: LLM基础篇总结
 toc: true
 authors:
   - example-author
 tags:
+  - LLM
+  - 人工智能
 categories:
 series:
 date: '2021-03-31T13:11:22+08:00'

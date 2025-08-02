@@ -2,6 +2,13 @@
 title: "Hugo"
 date: 2025-08-02T12:03:48+08:00
 draft: false
+toc: true
+tag:
+  - Hugo
+  - 静态网站
+  - 博客管理 
+authors:
+  - example-author
 ---
 
 # 命令
