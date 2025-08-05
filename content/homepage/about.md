@@ -67,4 +67,4 @@ My expertise lies in full-stack web development, with a strong command of React-
 - 2023.9 - 2024.4, AliTrip Transportation Division,Alibaba.
 
 ## 📝 Publications
-- A Reduced Mixed Representation Based Multi-Objective Evolutionary Algorithm for Large-Scale Overlapping Community Detection 2021 IEEE Congress on Evolutionary Computation (CEC) DOI: 10.1109/CEC45853.2021.9504894
+- A Reduced Mixed Representation Based Multi-Objective Evolutionary Algorithm for Large-Scale Overlapping Community Detection 2021 IEEE Congress on Evolutionary Computation (CEC) DOI: 10.1109/CEC45853.2021.9504894. [\[PDF\]](mypapaers/CEC2021_MOE.pdf)[\[URL\]](https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=0O_0fFAAAAAJ&citation_for_view=0O_0fFAAAAAJ:u5HHmVD_uO8C)
