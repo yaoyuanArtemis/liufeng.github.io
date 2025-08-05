@@ -1,6 +1,6 @@
 ---
-title: Example Doc
-description: This is an example doc layout of Eureka theme
+title: LLM-Learning
+description: This is an LLM-Learning
 toc: true
 authors:
 tags:
