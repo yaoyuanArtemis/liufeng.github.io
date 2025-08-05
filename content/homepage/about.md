@@ -48,7 +48,7 @@ widget:
 
 ## About me
 
-I work at<strong>Alibaba</strong> <strong>Group</strong><img src='https://raw.githubusercontent.com/yaoyuanArtemis/imgages/main/alibaba_logo.png' style='width: 3em;display: inline;margin-top:0;margin-bottom:0'> as a front-end developer,currently in Hangzhou,China.
+I work at[<strong>Alibaba</strong> <strong>Group</strong>](https://www.alibaba.com/)<img src='https://raw.githubusercontent.com/yaoyuanArtemis/imgages/main/alibaba_logo.png' style='width: 3em;display: inline;margin-top:0;margin-bottom:0'> as a front-end developer,currently in Hangzhou,China.
 
 I am now working at TD, Transportation Division,backend system for ticket sales. If you are seeking any form of technology cooperation, please feel free to email me at yaoyuan.lf@alibaba-inc.com or yaoyuan.lf@gmail.com.
 
@@ -58,13 +58,13 @@ My expertise lies in full-stack web development, with a strong command of React-
 
 ## 📖 Educations
 
-- 2025.9 - 2026.6, Master, Hongkong University, HKSAR 🇭🇰.
-- 2017.9 - 2021.6, Undergraduate, Computer Talent Class,Anhui University, Hefei, China🇨🇳.
+- 2025.9 - 2026.6, Master, [Hongkong University](https://www.hku.hk/),  HKSAR 🇭🇰.
+- 2017.9 - 2021.6, Undergraduate, Computer Talent Class, [Anhui University](https://www.ahu.edu.cn/), Hefei, China🇨🇳.
 - 2014.9 - 2017.6, Qingyang No.1 Middle School, Qingyang, China 🇨🇳.
 
 ## 💻 Experience
-- 2021.7 - 2023.9, Infrastructure Research and Develpment Center at China Merchants Bank(CMB).
-- 2023.9 - 2024.4, AliTrip Transportation Division,Alibaba.
+- 2021.7 - 2023.9, Infrastructure Research and Develpment Center at [China Merchants Bank](https://www.cmbchina.com/).
+- 2023.9 - 2024.4, AliTrip Transportation Division,[Alibaba](https://www.alibaba.com/).
 
 ## 📝 Publications
-- A Reduced Mixed Representation Based Multi-Objective Evolutionary Algorithm for Large-Scale Overlapping Community Detection 2021 IEEE Congress on Evolutionary Computation (CEC) DOI: 10.1109/CEC45853.2021.9504894. [\[PDF\]](mypapaers/CEC2021_MOE.pdf)[\[URL\]](https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=0O_0fFAAAAAJ&citation_for_view=0O_0fFAAAAAJ:u5HHmVD_uO8C)
+- [CEC 2021] **A Reduced Mixed Representation Based Multi-Objective Evolutionary Algorithm for Large-Scale Overlapping Community Detection.** [\[PDF\]](mypapaers/CEC2021_MOE.pdf)[\[URL\]](https://scholar.google.com.hk/citations?view_op=view_citation&hl=zh-CN&user=0O_0fFAAAAAJ&citation_for_view=0O_0fFAAAAAJ:u5HHmVD_uO8C)
