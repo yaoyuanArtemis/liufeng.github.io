@@ -9,6 +9,10 @@ authors:
 tags:
   - V8
   - 浏览器
+categories:
+    - V8
+    - 浏览器
+    - 前端
 ---
 
 

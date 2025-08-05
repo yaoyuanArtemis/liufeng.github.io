@@ -9,6 +9,11 @@ tag:
   - 博客管理 
 authors:
   - example-author
+categories:
+    - 博客管理
+    - 静态网站
+    - Hugo
+    - 前端
 ---
 
 # 命令

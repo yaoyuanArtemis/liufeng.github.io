@@ -4,7 +4,7 @@ draft: false
 role: Software Engineer
 avatar: https://raw.githubusercontent.com/yaoyuanArtemis/imgages/main/avatar.png
 organization:
-  name: Hongkong University
+  name: "@ Hongkong University"
   url: https://www.hku.hk/
 social:
   - icon: envelope
