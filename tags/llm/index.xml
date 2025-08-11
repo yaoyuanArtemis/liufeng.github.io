@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LLM on Liu Feng</title><link>https://yaoyuanArtemis.github.io/tags/llm/</link><description>Recent content in LLM on Liu Feng</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 10 Aug 2025 13:13:14 +0800</lastBuildDate><atom:link href="https://yaoyuanArtemis.github.io/tags/llm/index.xml" rel="self" type="application/rss+xml"/><item><title>LLM - 模型微调</title><link>https://yaoyuanArtemis.github.io/posts/llm-ft/</link><pubDate>Sun, 10 Aug 2025 13:13:14 +0800</pubDate><guid>https://yaoyuanArtemis.github.io/posts/llm-ft/</guid><description>种类 微调主要包括三种类型：
+SFT（有监督微调）
+Supervised Fine-Tuning
+通过人工标注的数据，进一步训练预训练模型，让模型能够胜任在特定领域
+除了有监督微调，还包括“无监督微调”，“自监督微调”
+微调算法分类：
+全参数微调：
+优点：可以获得最佳性能
+缺点：需要较大计算性能
+部分参数微调：
+优缺点：反之
+case:LoRA
+RLFH（强化学习）
+DPO（Direct Preference Optimization）通过人类主动选择，直接优化模型；调整幅度大
+PPO（Proximal Policy Optimization）通过点赞，点踩来渐进式调整模型，
+RAG（检索增强生成）
+将文本生成和外部信息检索结合，实时获取外部信息和最新信息 RAG和SFT的区别与联系：
+微调参数 框架：LLaMA Factory
+算法：Lora
+基座模型：Deepseek-R1-Distill-Qwen-1.5B
+web框架：FastAPI
+LoRA LLM - LoRA\QLoRA
+SFT整体步骤 租用云GPU SSH登陆 下载安装模型训练框架 git clone --depth 1 https://github.com/hiyouga/LLaMA-Factory.git 下载可能会被🧱
+git clone --depth 1 https://hub.gitmirror.com/https://github.com/hiyouga/LLaMA-Factory.git 创建conda环境 conda create -n llama-factory python=3.10 安装llamafactory并验证 llamafactory-cli version llama-cli可视化 llamafactory-cli web-ui hugging-face下载模型 // 存储模型文件夹 mkdir hugging-face // 修改hugging-face镜像源 export HF_ENDPOINT=https://hf-mirror.com // 修改模型下载位置 export HF_HOME=/root/autodl-tmp/hugging-face // 这是临时配置，如果要永久写入还得添加到~/.</description></item><item><title>LLM-大模型</title><link>https://yaoyuanArtemis.github.io/posts/llm/</link><pubDate>Wed, 31 Mar 2021 13:11:22 +0800</pubDate><guid>https://yaoyuanArtemis.github.io/posts/llm/</guid><description>一言以蔽之，一个LLM模型就是一个概率数据库。它为任何给定字符的上下文字符分配一个概率分布
+LLM-原理😈 背景 在LLM出现之前，机器对神经网络的训练受限于相对较小的数据集，对上下文理解能力非常有限
+Google Brain团队在2017年发布了《Attetion is all your need》后引入了transformer架构，起初的目的是为了训练语言翻译模型。但是Open AI团队发现transformer是字符预测的关键解决方案
+模型架构 Embedding（嵌入向量）：将输入文字转化成数字｜文字向量化 Token Embedding Look-Up Table: 0 1 2 3 4 5 6 7 8 9 ... 54 55 56 57 58 59 60 61 62 63 0 0.625765 0.025510 0.954514 0.064349 -0.502401 -0.202555 -1.567081 -1.097956 0.235958 -0.239778 ... 0.420812 0.277596 0.778898 1.533269 1.609736 -0.403228 -0.274928 1.473840 0.068826 1.332708 1 -0.497006 0.465756 -0.257259 -1.067259 0.835319 -1.956048 -0.800265 -0.504499 -1.426664 0.905942 ... 0.008287 -0.252325 -0.657626 0.</description></item></channel></rss>

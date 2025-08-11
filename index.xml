@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Liu Feng</title><link>https://yaoyuanArtemis.github.io/</link><description>Recent content on Liu Feng</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 10 Aug 2025 13:13:14 +0800</lastBuildDate><atom:link href="https://yaoyuanArtemis.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>LLM - 模型微调</title><link>https://yaoyuanArtemis.github.io/posts/llm-ft/</link><pubDate>Sun, 10 Aug 2025 13:13:14 +0800</pubDate><guid>https://yaoyuanArtemis.github.io/posts/llm-ft/</guid><description>种类 微调主要包括三种类型：
+SFT（有监督微调）
+Supervised Fine-Tuning
+通过人工标注的数据，进一步训练预训练模型，让模型能够胜任在特定领域
+除了有监督微调，还包括“无监督微调”，“自监督微调”
+微调算法分类：
+全参数微调：
+优点：可以获得最佳性能
+缺点：需要较大计算性能
+部分参数微调：
+优缺点：反之
+case:LoRA
+RLFH（强化学习）
+DPO（Direct Preference Optimization）通过人类主动选择，直接优化模型；调整幅度大
+PPO（Proximal Policy Optimization）通过点赞，点踩来渐进式调整模型，
+RAG（检索增强生成）
+将文本生成和外部信息检索结合，实时获取外部信息和最新信息 RAG和SFT的区别与联系：
+微调参数 框架：LLaMA Factory
+算法：Lora
+基座模型：Deepseek-R1-Distill-Qwen-1.5B
+web框架：FastAPI
+LoRA LLM - LoRA\QLoRA
+SFT整体步骤 租用云GPU SSH登陆 下载安装模型训练框架 git clone --depth 1 https://github.com/hiyouga/LLaMA-Factory.git 下载可能会被🧱
+git clone --depth 1 https://hub.gitmirror.com/https://github.com/hiyouga/LLaMA-Factory.git 创建conda环境 conda create -n llama-factory python=3.10 安装llamafactory并验证 llamafactory-cli version llama-cli可视化 llamafactory-cli web-ui hugging-face下载模型 // 存储模型文件夹 mkdir hugging-face // 修改hugging-face镜像源 export HF_ENDPOINT=https://hf-mirror.com // 修改模型下载位置 export HF_HOME=/root/autodl-tmp/hugging-face // 这是临时配置，如果要永久写入还得添加到~/.</description></item><item><title>NodeJS</title><link>https://yaoyuanArtemis.github.io/posts/node_wip/</link><pubDate>Sat, 02 Aug 2025 13:13:14 +0800</pubDate><guid>https://yaoyuanArtemis.github.io/posts/node_wip/</guid><description>数据库
+日志
+异常
+权限
+校验
+&amp;hellip;
+NodeJs缺陷 由于天生单线程特性，面对CPU密集型任务，可能会导致性能瓶颈 从性能来看：Bun &amp;gt; Deno &amp;gt; Node
+Deno和Bun天生支持Typescript
+Deno增加了权限模型，更安全
+Node线程 libuv线程池 处理IO密集型任务
+worker_threads 处理计算密集型任务
+Worker_threads Node.js 10.x 版本开始，引入了 worker_threads 模块，着重处理CPU密集型任务
+Nodejs默认只有一个JS线程，但是可以创建多个JS线程辅助计算。使用 worker_threads 可以实现真正意义上的多线程并行计算
+现代操作系统的线程调度器可以将不同的线程分配到不同的 CPU 核心上并行执行
+线程不直接共享内存，每个threads有自己的v8引擎；通过postMessage传递数据，实际上就是传统的跨进程数据传递方式
+JS的线程不和其他多线程语言一样，比如go语言线程之间天然共享内存。
+Node的进程和线程 // 进程 const cluster = require(&amp;quot;cluster&amp;quot;) culster.fork() // 开启进程 // 线程 const {Worker} = require(&amp;quot;worker_threads&amp;quot;) const worker1 = new Worker(地址) NodeJS架构 Node分为4大部分，Node standard library，Node bindings，V8和libuv
+Node bindings：封装C++和JS的桥梁，封装V8和libuv
+NodeJs运行时 缺点：一旦某个计算过程崩溃，整个服务就崩溃
+BFF架构 服务端和服务端之间没有并发限制
+中间件的洋葱模型 Koa/MidwayJs中的中间件使用洋葱模型；Express则是队列模型
+// myKoa.js const {createServer} from 'http' class MyKoa{ handlerList = [] use(fn){ this.</description></item><item><title>V8</title><link>https://yaoyuanArtemis.github.io/posts/v8/</link><pubDate>Sat, 02 Aug 2025 13:13:14 +0800</pubDate><guid>https://yaoyuanArtemis.github.io/posts/v8/</guid><description>V8内存架构（C++） code space：储存及时编译后的代码
+new space：64MB 垃圾回收重点
+old space：1400MB 垃圾回收重点
+node整个内存：1.4GB/2GB
+JS引擎包含一个调用栈和一个堆
+调用栈 — 程序执行的内存空间
+堆 — 存储对象的内存空间
+内存泄漏 有些内存无法被垃圾回收器回收，这部分内存叫做内存泄漏
+垃圾回收器机制 标记清除（目前主流）具体概念可以MDN
+引用计数
+浏览器知道哪些内存无法触达，垃圾回收器就会自动触发执行给回收掉
+若有些内存能触达，但实际上不会再用，就需要手动处理，让这些内存无法触达
+let obj = { users : &amp;quot;lf&amp;quot; } obj = null 浏览器架构 浏览器进程 JS是单线程，浏览器是多进程和多线程，二者并不冲突
+浏览器进程
+地址栏、书签、前进、后退、网络请求和文件访问
+UI线程
+标签页创建和销毁
+网络线程
+存储线程
+渲染进程(也叫浏览器内核)
+渲染线程：Blink线程负责渲染HTML和CSS；重绘（颜色变化）、重排（HTML布局变化）
+JS解释器线程 （V8）
+执行JS
+与GUI渲染线程互斥
+定时器触发线程
+事件触发线程
+异步HTTP线程
+Worker线程
+位于渲染进程内
+一些复杂计算可以交给Worker线程，避免影响V8线程渲染
+不能操作DOM
+与JS线程通过postMessage通信
+合成器线程
+光栅线程
+插件进程
+工具进程
+GPU进程
+浏览器详解博客 深入了解现代网络浏览
+JS引擎和JS运行时 JS引擎：编译、解析、优化、执行
+堆与栈 AST抽象语法树之后hashMap会缓存所有字符串
+堆：其它类型、字符串、大整数、小数
+栈：小的整数存在栈中
+V8及时编译 解析器 转换成AST语法树
+转换器 AST到字节码&amp;amp;执行</description></item><item><title>React</title><link>https://yaoyuanArtemis.github.io/posts/front-end/</link><pubDate>Sat, 02 Aug 2025 13:10:23 +0800</pubDate><guid>https://yaoyuanArtemis.github.io/posts/front-end/</guid><description/></item><item><title>Details</title><link>https://yaoyuanArtemis.github.io/details/</link><pubDate>Sat, 02 Aug 2025 12:30:04 +0800</pubDate><guid>https://yaoyuanArtemis.github.io/details/</guid><description>Extra Details I am a Web Engineer at the Transportaion Division,Alibaba(Tmall&amp;rsquo;s parent company,Stock Code:BABA) and I go by the nickname &amp;ldquo;YaoYuan(遥渊)&amp;rdquo; here for convinence in the firms. Previously,I worked as a Full Stack Engineer at the DevOps&amp;amp;Automation 1 Department,Instructure and Development Center,China Merchants Bank(the biggest Joint-Stock Commercial Bank in China),in Shenzhen China🇨🇳 from 2021 to 2023. My ongoing devepment project involve web deveopment,with a specific focus on pure front-end and full stack using NodeJS. I am commited to some technical stack at present,such as : React、NodeJS、Babel、Rust、Java、Python,Besides,I prefer to learn some relevant knowledge about AI,which has been making waves not long ago.</description></item><item><title>Hugo</title><link>https://yaoyuanArtemis.github.io/posts/usehugo/</link><pubDate>Sat, 02 Aug 2025 12:03:48 +0800</pubDate><guid>https://yaoyuanArtemis.github.io/posts/usehugo/</guid><description>命令 hugo new 新建文章 hugo new --kind default posts/useHugo/index.md</description></item><item><title>LLM-大模型</title><link>https://yaoyuanArtemis.github.io/posts/llm/</link><pubDate>Wed, 31 Mar 2021 13:11:22 +0800</pubDate><guid>https://yaoyuanArtemis.github.io/posts/llm/</guid><description>一言以蔽之，一个LLM模型就是一个概率数据库。它为任何给定字符的上下文字符分配一个概率分布
+LLM-原理😈 背景 在LLM出现之前，机器对神经网络的训练受限于相对较小的数据集，对上下文理解能力非常有限
+Google Brain团队在2017年发布了《Attetion is all your need》后引入了transformer架构，起初的目的是为了训练语言翻译模型。但是Open AI团队发现transformer是字符预测的关键解决方案
+模型架构 Embedding（嵌入向量）：将输入文字转化成数字｜文字向量化 Token Embedding Look-Up Table: 0 1 2 3 4 5 6 7 8 9 ... 54 55 56 57 58 59 60 61 62 63 0 0.625765 0.025510 0.954514 0.064349 -0.502401 -0.202555 -1.567081 -1.097956 0.235958 -0.239778 ... 0.420812 0.277596 0.778898 1.533269 1.609736 -0.403228 -0.274928 1.473840 0.068826 1.332708 1 -0.497006 0.465756 -0.257259 -1.067259 0.835319 -1.956048 -0.800265 -0.504499 -1.426664 0.905942 ... 0.008287 -0.252325 -0.657626 0.</description></item><item><title>Chapter 1</title><link>https://yaoyuanArtemis.github.io/projects/llm-learning/chapter-1/</link><pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate><guid>https://yaoyuanArtemis.github.io/projects/llm-learning/chapter-1/</guid><description>&lt;p>This is chapter 1 of example doc.&lt;/p></description></item><item><title>Chapter 1</title><link>https://yaoyuanArtemis.github.io/projects/llm-learning/nested-chapter/chapter-1/</link><pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate><guid>https://yaoyuanArtemis.github.io/projects/llm-learning/nested-chapter/chapter-1/</guid><description>&lt;p>This is chapter 1 of nested chapter.&lt;/p></description></item><item><title>Chapter 2</title><link>https://yaoyuanArtemis.github.io/projects/llm-learning/chapter-2/</link><pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate><guid>https://yaoyuanArtemis.github.io/projects/llm-learning/chapter-2/</guid><description>This is chapter 2 of example doc.</description></item><item><title>Chapter 2</title><link>https://yaoyuanArtemis.github.io/projects/llm-learning/nested-chapter/chapter-2/</link><pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate><guid>https://yaoyuanArtemis.github.io/projects/llm-learning/nested-chapter/chapter-2/</guid><description>&lt;p>This is chapter 2 of nested chapter.&lt;/p></description></item></channel></rss>
